@@ -8,7 +8,9 @@ export class ModelService {
         return {
             msg : 'hello world',
             values : 8392,
-            username : "don"
+            username : "don",
+            description : "logic",
+            added : "prisma modules"
         }
     }
 
@@ -16,7 +18,8 @@ export class ModelService {
         return {
             msg : 'signed in',
             values : 4984,
-            username : "phedwine"
+            username : "phedwine",
+            hash : "**************"
         }
     }
 }
