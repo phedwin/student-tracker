@@ -1,20 +1,33 @@
-import { Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
 
 @Controller('auth')
 export class AuthController {
-    constructor(private authService : AuthService){}
+    constructor(private readonly authService : AuthService){}
 
 
-    @Post("signin") 
-    
-    userData() {
-        return this.authService.userData()
+    @Post()
+    insertUser(
+
+
+        @Body('username')  username : string,
+        @Body('username')  age : number,
+        @Body('username')  email : string,
+        @Body('username')  firstName: string,
+        @Body('username')  middleName : string,
+        @Body('username')  lastName : string
+
+    ) {
+
+        const userId = this.authService.userData(
+            username, age, email, firstName, middleName,lastName
+        )
+
+        return {
+            userId
+        }
+
+        // this.authService.userData();
     }
 
-    @Post("signup")
-
-    signingUp() {
-        return this.authService.switchUserData();
-    }
 }
